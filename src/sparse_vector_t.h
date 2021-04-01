@@ -1,12 +1,12 @@
-// AUTOR: 
-// FECHA: 
-// EMAIL: 
+// AUTOR:
+// FECHA:
+// EMAIL:
 // VERSION: 4.0
 // ASIGNATURA: Algoritmos y Estructuras de Datos
 // PRÁCTICA Nº: 3
 // ESTILO: Google C++ Style Guide
 // COMENTARIOS:
-// 
+//
 
 #ifndef SPARSE_VECTORT_H_
 #define SPARSE_VECTORT_H_
@@ -23,6 +23,14 @@ typedef pair_t<double> pair_double_t;
 typedef vector_t<pair_double_t> pair_vector_t;
 
 class sparse_vector_t {
+// Atributos
+ private:
+   pair_vector_t pv_;  // valores + índices
+   int nz_;            // nº de valores distintos de cero = tamaño del vector
+   int n_;             // tamaño del vector original
+
+   // bool IsNotZero(const double, const double = EPS) const;
+
  public:
   // constructores
   sparse_vector_t(const int = 0);
@@ -35,7 +43,7 @@ class sparse_vector_t {
 
   // destructor
   ~sparse_vector_t();
-  
+
   // getters
   int get_nz(void) const;
   int get_n(void) const;
@@ -43,7 +51,7 @@ class sparse_vector_t {
   // getters-setters
   pair_double_t& at(const int);
   pair_double_t& operator[](const int);
-  
+
   // getters constantes
   const pair_double_t& at(const int) const;
   const pair_double_t& operator[](const int) const;
@@ -51,12 +59,6 @@ class sparse_vector_t {
   // E/S
   void write(std::ostream& = std::cout) const;
 
- private:
-  pair_vector_t pv_;  // valores + índices
-  int nz_;            // nº de valores distintos de cero = tamaño del vector
-  int n_;             // tamaño del vector original
-
-  // bool IsNotZero(const double, const double = EPS) const;
 };
 
 
@@ -67,8 +69,11 @@ bool IsNotZero(const double val, const double eps = EPS) {
 sparse_vector_t::sparse_vector_t(const int n) : pv_(n), nz_(0), n_(n) {}
 
 // FASE II
-sparse_vector_t::sparse_vector_t(const vector_t<double>& v, const double eps)
-    : pv_(), nz_(0), n_(0) {
+sparse_vector_t::sparse_vector_t(const vector_t<double>& v, const double eps):
+  pv_(),
+  nz_(0),
+  n_(0)
+{
   // poner el código aquí
 }
 
@@ -115,7 +120,7 @@ const pair_double_t& sparse_vector_t::operator[](const int i) const {
 }
 
 // E/S
-void sparse_vector_t::write(std::ostream& os) const { 
+void sparse_vector_t::write(std::ostream& os) const {
   os << get_n() << "(" << get_nz() << "): [ ";
   for (int i = 0; i < get_nz(); i++)
     os << pv_[i] << " ";

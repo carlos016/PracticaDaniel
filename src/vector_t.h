@@ -1,12 +1,12 @@
 // AUTOR: 
-// FECHA: 
-// EMAIL: 
+// FECHA:
+// EMAIL:
 // VERSION: 3.1
 // ASIGNATURA: Algoritmos y Estructuras de Datos
 // PRÁCTICA Nº: 3
 // ESTILO: Google C++ Style Guide
 // COMENTARIOS:
-// 
+//
 
 #ifndef VECTORT_H_
 #define VECTORT_H_
@@ -25,25 +25,25 @@ template<class T> class vector_t {
 
   // destructor
   ~vector_t();
-  
+
   // getters
   T get_val(const int) const;
   int get_size(void) const;
-  
+
   // setters
   void set_val(const int, const T);
-  
+
   // getters-setters
   T& at(const int);
   T& operator[](const int);
-  
+
   // getters constantes
   const T& at(const int) const;
   const T& operator[](const int) const;
 
   // Redimensionado
   void resize(const int);
-  
+
   // E/S
   void read(std::istream& = std::cin);
   void write(std::ostream& = std::cout) const;
@@ -51,7 +51,7 @@ template<class T> class vector_t {
  private:
   T *v_;
   int sz_;
-  
+
   void build(void);
   void destroy(void);
 };
@@ -72,7 +72,7 @@ template<class T> vector_t<T>& vector_t<T>::operator=(const vector_t<T>& w) {
   resize(w.get_size());
   for (int i = 0; i < get_size(); i++)
     at(i) = w.at(i);
-  
+
   return *this;
 }
 

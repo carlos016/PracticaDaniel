@@ -78,27 +78,22 @@ sparse_vector_t::sparse_vector_t(const vector_t<double>& v, const double eps):
   n_ = v.get_size();
   //Número de valores distintos de cero (Tamaño del SparseVector)//
   for(int i{0}; i < v.get_size(); i++){
-    if(!IsNotZero(v[i], eps)){
+    if(IsNotZero(v[i], eps)){
       nz_++;
     }
   }
-  //std::cout << "\nMIRA AQUI LOKO 1: " << pv_.get_size() <<"\n";
+  //Resize para guardar los números distintos de cero//
   pv_.resize(nz_);
-  //std::cout << "\nMIRA AQUI LOKO 2: " << pv_.get_size() <<"\n";
-  pair_double_t parAux;
+  //Iterador para acceder al vector de pares //
   int j{0};
+  //Rellenamos el vector de pares//
   for(int i{0}; i < v.get_size(); i++){
     if(IsNotZero(v[i], eps)){
-      //pair_double_t parAux;
-      //std::cout << "\nMira aquí también tostado: " << parAux << "\n";
-      //parAux.set(v[i], i);
       pair_double_t parAux(v[i], i);
-      //pv_[j] = parAux;
-      pv_[j].set(parAux.get_val(), parAux.get_inx());
+      pv_[j] = parAux;
       j++;
     }
   }
-  std::cout << "\nA ver que tal queda esto porque la polla: " << pv_ << "\n";
 }
 
 // constructor de copia

@@ -7,4 +7,4 @@ all: ${OBJS}
 	$(CC) $(CXXFLAGS) -o main_polynomial ${OBJS}
 
 clean:
-	cd src && rm -rf *.o main_polynomial
+	cd src &&  rm -rf *.o main_polynomial

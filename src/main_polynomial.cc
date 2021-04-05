@@ -1,11 +1,11 @@
-// AUTOR: 
-// FECHA: 
-// EMAIL: 
+// AUTOR:
+// FECHA:
+// EMAIL:
 // VERSION: 1.0
 // ASIGNATURA: Algoritmos y Estructuras de Datos
 // PRÁCTICA Nº: 3
 // ESTILO: Google C++ Style Guide
-// COMENTARIOS: 
+// COMENTARIOS:
 // COMPILACIÓN: g++ -g main_polynomial.cc -o main_polynomial
 // EJECUCIÓN: ./main_polynomial < data_polynomial.txt
 
@@ -15,10 +15,10 @@
 
 using namespace std;
 
-int main()
-{
-  Polynomial p1, p2, p3;
+int main(){
   
+  Polynomial p1, p2, p3;
+
   cin >> p1 >> p2 >> p3;
   cout << "p1= " << p1;
   cout << "p2= " << p2;

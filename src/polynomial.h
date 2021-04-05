@@ -1,12 +1,12 @@
 // AUTOR: 
-// FECHA: 
-// EMAIL: 
+// FECHA:
+// EMAIL:
 // VERSION: 1.0
 // ASIGNATURA: Algoritmos y Estructuras de Datos
 // PRÁCTICA Nº: 3
 // ESTILO: Google C++ Style Guide
 // COMENTARIOS:
-// 
+//
 
 #ifndef POLYNOMIAL_H_
 #define POLYNOMIAL_H_
@@ -30,7 +30,7 @@ class Polynomial : public vector_t<double> {
 
   // E/S
   void Write(std::ostream& = std::cout, const double eps = EPS) const;
-  
+
   // operaciones
   double Eval(const double) const;
   bool IsEqual(const Polynomial&, const double = EPS) const;
@@ -50,7 +50,7 @@ class SparsePolynomial : public sparse_vector_t {
 
   // E/S
   void Write(std::ostream& = std::cout) const;
-  
+
   // operaciones
   double Eval(const double) const;
   bool IsEqual(const SparsePolynomial&, const double = EPS) const;

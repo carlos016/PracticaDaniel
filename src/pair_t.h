@@ -8,7 +8,7 @@
 // COMENTARIOS:
 //
 
-//Mensajes para el compilador, evita referencias repetidas y circulares, solo define la clase si no está definida//
+//Mensajes para el compilador, evita referencias repetidas y/o circulares, solo define la clase si no está definida//
 #ifndef PAIRT_H_
 #define PAIRT_H_
 

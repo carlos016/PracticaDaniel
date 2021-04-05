@@ -95,7 +95,6 @@ sparse_vector_t::sparse_vector_t(const vector_t<double>& v, const double eps):
     }
   }
 }
-
 // constructor de copia
 sparse_vector_t::sparse_vector_t(const sparse_vector_t& w) {
   *this = w;  // se invoca directamente al operator=

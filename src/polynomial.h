@@ -1,4 +1,4 @@
-// AUTOR: 
+// AUTOR:
 // FECHA:
 // EMAIL:
 // VERSION: 1.0
@@ -82,14 +82,21 @@ std::ostream& operator<<(std::ostream& os, const Polynomial& p) {
 // Evaluación de un polinomio representado por vector denso
 double Polynomial::Eval(const double x) const {
   double result{0.0};
-  // poner el código aquí
+  //Asi queda mas guapo//
+  for(int i{0}; i < get_size(); i++){
+    result += get_val(i) * pow(x, i);
+  }
   return result;
 }
 
 // Comparación si son iguales dos polinomios representados por vectores densos
 bool Polynomial::IsEqual(const Polynomial& pol, const double eps) const {
   bool differents = false;
-  // poner el código aquí
+  SparsePolynomial sp1(*this);
+  SparsePolynomial sp2(pol);
+  if(!sp1.IsEqual(sp2)){
+    differents = true;
+  }
   return !differents;
 }
 
@@ -123,15 +130,30 @@ std::ostream& operator<<(std::ostream& os, const SparsePolynomial& p) {
 // Evaluación de un polinomio representado por vector disperso
 double SparsePolynomial::Eval(const double x) const {
   double result{0.0};
-  // poner el código aquí
+
+  for(int i{0}; i < get_nz(); i++){
+    result += at(i).get_val() * pow(x, at(i).get_inx());
+  }
   return result;
 }
 
 // Comparación si son iguales dos polinomios representados por vectores dispersos
-bool SparsePolynomial::IsEqual(const SparsePolynomial& spol
-			       , const double eps) const {
+bool SparsePolynomial::IsEqual(const SparsePolynomial& pol, const double eps) const {
   bool differents = false;
-  // poner el código aquí
+  if(get_nz() == pol.get_nz()){
+    int i{0};
+    while(!differents && (i < get_nz())){
+      if(at(i).get_val() != pol.at(i).get_val()){
+        differents = true;
+      }
+      else{
+        i++;
+      }
+    }
+  }
+  else{
+    differents = true;
+  }
   return !differents;
 }
 
@@ -139,9 +161,11 @@ bool SparsePolynomial::IsEqual(const SparsePolynomial& spol
 // vector disperso y vector denso
 bool SparsePolynomial::IsEqual(const Polynomial& pol, const double eps) const {
   bool differents = false;
-  // poner el código aquí
+  SparsePolynomial sp(pol);
+  if(!IsEqual(sp)){
+    differents = true;
+  }
   return !differents;
 }
-
 
 #endif  // POLYNOMIAL_H_
